@@ -1,0 +1,389 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {   /*nesse comando as cores fica na raiz do arquivo*/
+    --color-white: #ffffff;
+    --color-pink: #d12f7a;
+    --color-blue: #073fcc;
+    --color-black: #0c0c0c;
+    --color-purple: #5f01ac;
+    --color-green: #008000;
+    --color-gray: rgb(5, 43, 68);
+}
+
+html {
+    scroll-behavior: smooth;  /*esse comando rola a tela com suavidade*/
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Arial Narrow';
+}
+
+.container ul {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;  /*este comando retira a bolinha que parece uma lista*/
+    align-items: center;
+    padding: 16px;
+    background-color: rgb(10, 60, 94);
+    color: var(--color-white);
+}
+
+.container nav ul :last-child {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+
+/*início apresentar*/
+#apresentar {
+    background-image: url(./img/entardecer.jpg);
+    background-size: cover;
+    height: 100vh; /*este comando permite a cor se espalhar por toda a tela*/
+    width: 100%;
+    display: flex;
+    align-items: center; /*align-itens centraliza no eixo y*/
+}
+
+.apresentar-conteudo {
+    background-size: cover;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center; /*esse comando centraliza no eixo x*/
+    align-items: center;
+    flex-direction: column;
+}
+
+.apresentar-conteudo div h2 {
+    color: transparent;
+    padding: 0px 4px;
+    position: relative;
+    font-size: 4rem;  /*esse comando (rem) ajuda na responsividade*/
+    line-height: 4rem;
+    animation: written_text .6s ease forwards;
+    width: fit-content;
+    margin: 20px;   
+}
+
+.apresentar-conteudo div h2:nth-child(1) {
+    animation-delay: 1.5s;
+}
+
+.apresentar-conteudo div h2:nth-child(2) {
+    animation-delay: 2.5s;
+}
+
+.apresentar-conteudo div h2:nth-child(3) {
+    animation: written_text_name .6s ease forwards;
+    animation-delay: 3.5s;
+}
+
+.apresentar-conteudo div h2 span {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 0;
+    height: 100%;
+    background: var(--color-pink);
+    animation: written_text_box 2s ease ;
+    animation-delay: 6s;
+}
+
+.apresentar-conteudo div h2:nth-child(1) span {
+    animation-delay: 1s;
+}
+.apresentar-conteudo div h2:nth-child(2) span {
+    animation-delay: 2s;
+}
+.apresentar-conteudo div h2:nth-child(3) span {
+    animation-delay: 3s;
+}
+
+.apresentar-nome {
+    margin-top: -14rem;
+}  
+
+ @keyframes written_text {    /*esse comando é responsável pela animação */
+  100% {
+        color: var(--color-white); 
+    }
+}
+
+@keyframes written_text_name{    
+    100% {
+        color: var(--color-green);
+    }
+}
+
+@keyframes written_text_box {    
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+.rede-social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6rem;
+}
+/*fim apresentar*/
+
+/*inicio apresentar-background*/
+.apresentar-background {
+    height: 100vh;
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction:column;
+    background-position: top center;
+    z-index: 1;
+}
+
+.apresentar-background::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .7;
+    z-index: -1;
+    background: 
+    linear-gradient(90deg, transparent 30%, var(--color-black) ),
+    linear-gradient(170deg, transparent 30%, var(--color-black)),
+    linear-gradient(0deg, transparent 60%, var(--color-black));
+}
+
+.foto-perfil-capa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    margin: 20px 15px;
+    border-radius: 50%;
+    background: 
+    radial-gradient(rgba(0, 0, 0, 0, .15) 60%, transparent 0),  /*comando que torna o gradiente em forma de círculo*/
+    radial-gradient(#000 68%, transparent 0),
+    linear-gradient(to top right, #ffa300, #ff1493 100%);
+}
+
+.foto-perfil {
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid rgb(233, 194, 150);
+}
+
+.links a img {
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+    filter: brightness(0.8);  /*comando que escurece os caracteres*/ 
+    transition: all .4s ease;
+}
+
+.links a img {
+    margin-left: 60px;
+}
+
+.links a p {
+    color: var(--color-white);
+    text-decoration: none;
+    margin-left: 60px;
+}
+
+.links a img:hover {
+    transform: scale(1.50);
+    filter: brightness(1);
+} 
+/*fim apresentar-background*/
+
+
+/*inicio sobre-mim*/
+#sobre-mim {
+    height: 100vh;
+    width: 100%;
+    display: flex; 
+    color: var(--color-white);
+    background: rgb(5, 43, 68); 
+}  
+
+.estudante {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 3rem;
+}
+
+.estudante-front h1 p {
+    display: inline-block;
+    font-size: 3rem;
+    margin: 1rem 3rem;
+}
+
+.estudante-front h2 p {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 1rem 3rem;
+}
+
+.estudante-front h2 span {
+    padding: 3px 5px;
+    border-radius: 4px;
+    color: var(--color-black);
+    background: var(--color-pink);
+}
+
+.estudante h3 {
+    margin: 1rem 3rem;
+    font-size: 2rem;
+}
+
+.estudante h3 p {
+    display: inline-block;
+    width: fit-content;     /*com este comando a cor se molda ao tamanho da linha*/
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: var(--color-black);
+    background: var(--color-pink);
+}
+
+.estudante h4 {
+    margin: 2rem 3rem;
+    font-size: 1.8rem;
+}
+
+.estudante h4 p {
+    color: var(--color-green);
+    font-size: bold;
+    font-weight: 1.75rem;
+}
+/*final sobre-mim*/
+
+/*incio botao-curriculo*/
+.botao-curriculo {
+    background: var(--color-pink);
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    max-width: 190px;
+    margin: 4rem 4rem;
+    border-radius: 7px;
+}
+
+.botao-curriculo a {
+    display: inline-block;
+    width: 1000%;
+    max-width: 172px;
+    padding: 10px;
+    margin-bottom: 3rem;
+    font-family: 'Arial Narrow';
+    font-weight: 700;
+    letter-spacing: .15rem;
+    cursor: pointer;
+    text-decoration: none; 
+    color: var(--color-white);
+}
+
+.botao-curriculo a:hover {
+    transition: all .4s ease;
+    filter: brightness(.0);
+}
+/*fim botao-curriculo*/
+
+/*Começo Projetos*/
+#projetos {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: 
+    linear-gradient(90deg, transparent 30%, var(--color-green)),
+    linear-gradient(170deg, transparent 30%, var(--color-green)),
+    linear-gradient(0deg, transparent 60%, var(--color-green));
+}
+
+.titulos-projetos h2 {
+    height: 60px;
+    margin: 3rem;
+    padding: 1rem;
+    font-size: 3rem;
+    background: 
+    linear-gradient(90deg, transparent 30%, var(--color-green)),
+    linear-gradient(170deg, transparent 30%, var(--color-green)),
+    linear-gradient(0deg, transparent 60%, var(--color-green));
+}
+/*fim projetos*/
+
+.form {
+    background: var(--color-black);
+    min-height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+h1, h2 {
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+h1::before {
+    
+}
+
+
+
+/*inicio footer*/
+footer{
+    float: left;
+    width: 100%;
+    height: 80%;
+    color: var(--color-black);
+    background: 
+    linear-gradient(90deg, transparent 30%, var(--color-green)),
+    linear-gradient(170deg, transparent 30%, var(--color-gray)),
+    linear-gradient(0deg, transparent 60%, var(--color-green));
+}
+
+.coluna {
+    margin-left: 2rem;
+}
+
+.site {
+    font-size:17px;
+}
+
+.primeiro {
+    font-size: 14px;
+}
+
+.credito {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+}
+/*fim footer*/
+
